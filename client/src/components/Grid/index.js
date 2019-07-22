@@ -9,7 +9,7 @@ export function Container({ fluid, children }) {
 
 // Bootstrap row w/o having to think about class names
 export function Row({ fluid, children }) {
-  return <div className={`row${fluid ? "-fluid" : ""}`}>{children}</div>;
+  return <div className={`justify-content-center mt-2 mb-2 row${fluid ? "-fluid" : ""}`}>{children}</div>;
 }
 
 // Col component for using bootstrap columns of varying sizes w/ less syntax
