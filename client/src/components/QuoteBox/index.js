@@ -1,26 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
-class Quote extends Component {
-
-    state = {
-        quote: ""
-    }
-    
-    render() {
+function QuoteBox(props) {
         return (
             <div>
                 <div className="form-group">
-                    <textarea className="form-control quote" onChange={this.handleIncomingQuote} rows="6" value={this.state.quote}>
-
-                    </textarea>
+                   {props.children}
                 </div>
             </div>
         );
     }
-}
 
-export default Quote;
+
+export default QuoteBox;
 
 // export function Translation(props) {
 //     return (

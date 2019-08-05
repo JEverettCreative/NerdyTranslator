@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import { Col, Container, Row } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import Quote  from "../components/QuoteBox";
 import TranslateCard from "../components/TranslateCard";
 import options from "../../src/translateoptions.json";
