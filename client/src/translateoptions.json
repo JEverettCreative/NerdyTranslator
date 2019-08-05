@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Dothraki",
+        "image": "./Imgs/dothraki.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Sindarin",
+        "image": "./Imgs/sindarin.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Vulcan",
+        "image": "./Imgs/vulcan.jpg"
+    }
+]
