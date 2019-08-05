@@ -5,7 +5,7 @@ function TranslateCard(props) {
     return (
         <div onClick={() => props.chooseLanguage(props.id)} className="card">
         <div className="img-container">
-            <img alt={props.name} src={props.image} data={props.id} />
+            <img alt={props.name} src={props.image} />
         </div>
       </div>
     )
