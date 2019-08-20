@@ -54,7 +54,7 @@ class OriginalQuote extends Component {
                     />
                 ))}
                 </Row>
-                {/* Need to create components for translate buttons */}
+                
             </div>
         )
     }

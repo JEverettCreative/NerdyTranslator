@@ -13,15 +13,3 @@ function QuoteBox(props) {
 
 
 export default QuoteBox;
-
-// export function Translation(props) {
-//     return (
-//         <div>
-//             <div className="form-group">
-//                 <textarea className="form-control quote" rows="6" value= {props.translated} readOnly>
-                   
-//                 </textarea>
-//             </div>
-//         </div>
-//     );
-// }
