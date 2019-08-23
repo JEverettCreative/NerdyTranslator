@@ -29,6 +29,14 @@ class Home extends Component {
         console.log("Component mounted");
     }
 
+    handleChange = event => {
+        const { name, value } = event.target;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
     getQuote = event => {
         event.preventDefault();
         // Pull Quote from TheySaidSo API - Give credit when using free version
