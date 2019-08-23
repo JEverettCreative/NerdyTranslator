@@ -4,8 +4,10 @@ import { Col, Container, Row } from "../components/Grid";
 import { LargeBtn } from "../components/Buttons";
 import QuoteBox  from "../components/QuoteBox";
 import quoteAPI from "../utils/quoteAPI";
+import translateAPI from "../utils/translateAPI";
 import TranslateCard from "../components/TranslateCard";
 import options from "../../src/translateoptions.json";
+import Footer from "../components/Footer";
 
 
 class Home extends Component {
@@ -15,8 +17,11 @@ class Home extends Component {
         quote: "",
         error: "",
         options,
-        styleTheme: {
+        styleThemeBackground: {
             backgroundColor: "#ddd"
+        },
+        styleThemeText: {
+            fontFamily: ""
         }
     }
 
@@ -41,14 +46,30 @@ class Home extends Component {
     // Need to set API calls up and return here to execute
     chooseLanguage = id => {
         if (id === 1) {
-            console.log("Choose Dothraki?");
-            this.setState({ styleTheme: { backgroundColor: "red" }});
+            translateAPI.translateQuote(this.state.quote)
+                .then(res => {
+                    if (res.data.status === "error") {
+                        throw new Error(res.data.message);
+                    }
+                    console.log(res.data.contents.translated);
+                    console.log("Choose Dothraki?");
+                    this.setState({ styleThemeBackground: { backgroundColor: "#EDC568" },
+                        styleThemeText: { fontFamily: "'Cinzel Decorative', cursive" },
+                        quote: res.data.contents.translated});
+                })
+            // console.log("Choose Dothraki?");
+            // this.setState({ styleThemeBackground: { backgroundColor: "#EDC568" },
+            //     styleThemeText: { fontFamily: "'Cinzel Decorative', cursive" }});
         }
         else if (id === 2) {
             console.log("Choose Sindarin?");
+            this.setState({ styleThemeBackground: { backgroundColor: "#C71508" },
+                styleThemeText: { fontFamily: "'Aguafina Script', cursive" }});
         }
         else if (id === 3) {
             console.log("Choose Vulcan?");
+            this.setState({ styleThemeBackground: { backgroundColor: "#3363CA" },
+                styleThemeText: { fontFamily: "'Audiowide', cursive" }});
         }
         else {
             console.log("Click successful, but no ID" + id);
@@ -58,9 +79,9 @@ class Home extends Component {
     render() {
 
         return (
-            <div style={ this.state.styleTheme }>
+            <div style={ this.state.styleThemeBackground }>
                 <Jumbotron>
-                    <h1>Nerdy Translator</h1>
+                    <h1 style={ this.state.styleThemeText }>Nerdy Translator</h1>
                 </Jumbotron>
                 <Container fluid>
                     <Row>
@@ -82,7 +103,7 @@ class Home extends Component {
                         />
                     </Row>
                     <Row>
-                    <h3>Translate</h3>
+                    <h3 style={ this.state.styleThemeText }>Translate</h3>
                 </Row>
                 <Row>
                 {this.state.options.map(option => (
@@ -96,6 +117,9 @@ class Home extends Component {
                 ))}
                 </Row>
                 </Container>
+                <Footer
+                    style={ {backgroundColor: "#ddd"} }
+                />
             </div>
         )
     }
