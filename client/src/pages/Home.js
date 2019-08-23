@@ -46,7 +46,8 @@ class Home extends Component {
     // Need to set API calls up and return here to execute
     chooseLanguage = id => {
         if (id === 1) {
-            translateAPI.translateQuote(this.state.quote)
+            let choice = "dothraki.json";
+            translateAPI.translateQuote(this.state.quote, choice)
                 .then(res => {
                     if (res.data.status === "error") {
                         throw new Error(res.data.message);
@@ -56,20 +57,35 @@ class Home extends Component {
                     this.setState({ styleThemeBackground: { backgroundColor: "#EDC568" },
                         styleThemeText: { fontFamily: "'Cinzel Decorative', cursive" },
                         quote: res.data.contents.translated});
-                })
-            // console.log("Choose Dothraki?");
-            // this.setState({ styleThemeBackground: { backgroundColor: "#EDC568" },
-            //     styleThemeText: { fontFamily: "'Cinzel Decorative', cursive" }});
+                });
         }
         else if (id === 2) {
-            console.log("Choose Sindarin?");
-            this.setState({ styleThemeBackground: { backgroundColor: "#C71508" },
-                styleThemeText: { fontFamily: "'Aguafina Script', cursive" }});
+            let choice = "sindarin.json";
+            translateAPI.translateQuote(this.state.quote, choice)
+                .then(res => {
+                    if (res.data.status === "error") {
+                        throw new Error(res.data.message);
+                    }
+                    console.log(res.data.contents.translated);
+                    console.log("Choose Sindarin?");
+                    this.setState({ styleThemeBackground: { backgroundColor: "#C71508" },
+                        styleThemeText: { fontFamily: "'Aguafina Script', cursive" },
+                        quote: res.data.contents.translated});
+                });
         }
         else if (id === 3) {
-            console.log("Choose Vulcan?");
-            this.setState({ styleThemeBackground: { backgroundColor: "#3363CA" },
-                styleThemeText: { fontFamily: "'Audiowide', cursive" }});
+            let choice = "vulcan.json";
+            translateAPI.translateQuote(this.state.quote, choice)
+                .then(res => {
+                    if (res.data.status === "error") {
+                        throw new Error(res.data.message);
+                    }
+                    console.log(res.data.contents.translated);
+                    console.log("Choose Vulcan?");
+                    this.setState({ styleThemeBackground: { backgroundColor: "#3363CA" },
+                        styleThemeText: { fontFamily: "'Audiowide', cursive" },
+                        quote: res.data.contents.translated});
+                });
         }
         else {
             console.log("Click successful, but no ID" + id);
