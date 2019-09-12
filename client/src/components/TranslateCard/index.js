@@ -3,7 +3,7 @@ import "./style.css";
 
 function TranslateCard(props) {
     return (
-        <div onClick={() => props.chooseLanguage(props.id)} className="card">
+        <div onClick={() => props.chooseLanguage(props.id)} className="card grow">
         <div className="img-container">
             <img alt={props.name} src={props.image} />
         </div>

@@ -18,3 +18,14 @@
   .card > .img-container > img {
     width: 100%
   }
+
+  .grow {
+    transition: all 0.2s ease-in-out;
+  }
+  .grow:hover {
+    background: #6CADDC;
+    transform: scale(1.1);
+    -moz-box-shadow: 0 0 20px #666;
+    -webkit-box-shadow: 0 0 20px #666;
+    box-shadow: 0 0 20px #666;
+  }
