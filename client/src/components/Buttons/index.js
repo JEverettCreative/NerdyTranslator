@@ -3,7 +3,7 @@ import "./style.css";
 
 export function LargeBtn(props) {
     return (
-        <button className="btn btn-lg large-btn" onClick={props.onClick}>
+        <button className="btn btn-lg large-btn" onClick={props.onClick} style={props.style}>
             {props.text}
         </button>
     );

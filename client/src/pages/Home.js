@@ -124,6 +124,7 @@ class Home extends Component {
                     <LargeBtn
                         text="Quote of the Day"
                         onClick={this.getQuote}
+                        style={ this.state.styleThemeText }
                         />
                     </Row>
                     <Row>
@@ -143,6 +144,7 @@ class Home extends Component {
                 </Container>
                 <Footer
                     style={ {backgroundColor: "#ddd"} }
+                    text="This application is powered by the free Quotes and FunTranslation APIs, which have hourly use limits. If you can't get a translation, try again later."
                 />
             </div>
         )
